@@ -1,0 +1,55 @@
+.slide-left{animation:slideLeft .4s ease forwards;}
+.slide-right{animation:slideRight .4s ease forwards;}
+@keyframes slideLeft{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
+
+.spinner{
+  width:20px;
+  height:20px;
+  border:3px solid rgba(255,255,255,.3);
+  border-top:3px solid white;
+  border-radius:50%;
+  animation:spin .6s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.ripple{
+  position:relative;
+  overflow:hidden;
+}
+.ripple::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,.3);
+  top:0;
+  left:0;
+  transform:scale(0);
+  opacity:0;
+  transition:transform .4s,opacity .6s;
+}
+.ripple:active::after{
+  transform:scale(2);
+  opacity:1;
+}
+
+.float-group{position:relative;}
+.float-label{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#9ca3af;
+  font-size:14px;
+  pointer-events:none;
+  transition:.3s;
+}
+.float-input:focus + .float-label,
+.float-input:not(:placeholder-shown) + .float-label{
+  top:-8px;
+  font-size:12px;
+  color:#facc15;
+  background:#111827;
+  padding:0 6px;
+}
