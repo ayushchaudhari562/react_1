@@ -229,22 +229,26 @@ function Home({ username, setDashboard }) {
           </div>
         </div>
       )}
+<div className="fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-15">
+  <button
+    onClick={() => {
+      localStorage.removeItem("isLoggedIn")
+      setDashboard(false)
+    }}
+    className="bg-red-600 px-6 py-3 rounded-xl shadow-lg active:scale-95 transition"
+  >
+    Logout
+  </button>
 
-      <button
-        onClick={() => {
-          localStorage.removeItem("isLoggedIn")
-          setDashboard(false)
-        }}
-        className="fixed bottom-15 right-6 bg-red-600 px-6 py-3 rounded-xl"
-      >
-        Logout
-      </button>
-<button
-  onClick={clearAttendance}
-  className="fixed bottom-15 left-6 bg-blue-300 px-5 py-3 rounded-2xl font-semibold text-black"
->
-  Clear Data
-</button>
+  <button
+    onClick={clearAttendance}
+    className="bg-blue-300 px-5 py-3 rounded-2xl font-semibold text-black shadow-lg active:scale-95 transition"
+  >
+    Clear Data
+  </button>
+</div>
+
+
     </div>
   )
 }
